@@ -24,8 +24,10 @@ body {
   margin-top:-60px;
   margin-left:-65px;
   font: 16px 'Open Sans', Helvetica, Arial, sans-serif;
-  color: #222;
+  color: white;
   text-transform: uppercase;
+  font-weight: 800;
+  visibility: hidden;
 }
 
 #questionButton {
