@@ -51,6 +51,25 @@ candidateTwo.electionResults[43] = 27;
 candidateOne.voteCount();
 candidateTwo.voteCount();
 
+// The code below declares a winner
+var winner = "";
+
+if (candidateOne.totalVotes > candidateTwo.totalVotes) {
+    
+    winner = candidateOne.name;
+    
+} else if (candidateOne.totalVotes < candidateTwo.totalVotes) {
+    
+    winner = candidateTwo.name;
+    
+} else {
+    
+    winner = "Nobody"
+    
+}
+
+console.log(winner + " wins the election!")
+
 // Used to check if the array was correct
 // console.log(candidateOne.electionResults);
 // console.log(candidateTwo.electionResults);
