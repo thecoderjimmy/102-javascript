@@ -1,13 +1,32 @@
+
+// FACTORY FUNCTION BELOW
 var makePolitician = function (firstName) {
 
-var politician = {}; // new blank object
-politician.name = firstName; // set name to parameter value
-politician.electionResults = null;
-politician.totalVotes = "0";
+    var politician = {}; // new blank object
+    politician.name = firstName; // set name to parameter value
+    politician.electionResults = null;
+    politician.totalVotes = "0";
 
-return politician;
+    // Counts the total amount of votes
+    // Add to factory function above return statement
+    politician.voteCount = function () {
+
+        this.totalVotes = 0
+
+        for (var i = 0; i < this.electionResults.length; i++) {
+
+            this.totalVotes = this.totalVotes + this.electionResults[i];
+
+        }
+        
+        console.log(this.totalVotes);
+
+    };    
+
+    return politician;
   
 };
+// END FACTORY FUNCTION
 
 var candidateOne = makePolitician("Hilary");
 var candidateTwo = makePolitician("Donald");
@@ -28,5 +47,10 @@ candidateTwo.electionResults[4] = 38;
 candidateOne.electionResults[43] = 11;
 candidateTwo.electionResults[43] = 27;
 
-console.log(candidateOne.electionResults);
-console.log(candidateTwo.electionResults);
+// Calls voteCount method for each politician
+candidateOne.voteCount();
+candidateTwo.voteCount();
+
+// Used to check if the array was correct
+// console.log(candidateOne.electionResults);
+// console.log(candidateTwo.electionResults);
