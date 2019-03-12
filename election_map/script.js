@@ -1,11 +1,12 @@
 
 // FACTORY FUNCTION BELOW
-var makePolitician = function (firstName) {
+var makePolitician = function (firstName, color) {
 
     var politician = {}; // new blank object
     politician.name = firstName; // set name to parameter value
     politician.electionResults = null;
     politician.totalVotes = "0";
+    politician.color = color; // set color to parameter value
 
     // Counts the total amount of votes
     // Add to factory function above return statement
@@ -28,8 +29,8 @@ var makePolitician = function (firstName) {
 };
 // END FACTORY FUNCTION
 
-var candidateOne = makePolitician("Hilary");
-var candidateTwo = makePolitician("Donald");
+var candidateOne = makePolitician("Hilary", [132, 17, 11]);
+var candidateTwo = makePolitician("Donald", [245, 141, 136]);
 
 candidateOne.electionResults = [5, 1, 7, 2, 33, 6, 4, 2, 1, 14, 8, 3, 1, 11, 11, 0, 5, 3, 3, 3, 7, 4, 8, 9, 3, 7, 2, 2, 4, 2, 8, 3, 15, 15, 2, 12, 0, 4, 13, 1, 3, 2, 8, 21, 3, 2, 11, 1, 3, 7, 2];
 
@@ -73,3 +74,7 @@ console.log(winner + " wins the election!")
 // Used to check if the array was correct
 // console.log(candidateOne.electionResults);
 // console.log(candidateTwo.electionResults);
+
+// Used to check if the color array was correct
+// console.log(candidateOne.color);
+// console.log(candidateTwo.color);
