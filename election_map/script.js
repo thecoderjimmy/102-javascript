@@ -7,8 +7,8 @@ var makePolitician = function (firstName, color) {
     politician.electionResults = null;
     politician.totalVotes = "0";
     politician.color = color; // set color to parameter value
-
-    // Counts the total amount of votes
+    
+    // method for counting amount of votes
     // Add to factory function above return statement
     politician.voteCount = function () {
 
@@ -29,6 +29,7 @@ var makePolitician = function (firstName, color) {
 };
 // END FACTORY FUNCTION
 
+
 var candidateOne = makePolitician("Hilary", [132, 17, 11]);
 var candidateTwo = makePolitician("Donald", [245, 141, 136]);
 
@@ -44,9 +45,41 @@ candidateTwo.electionResults[9] = 28;
 candidateOne.electionResults[4] = 17;
 candidateTwo.electionResults[4] = 38;
 
-// Texas re-cound
+// Texas re-count
 candidateOne.electionResults[43] = 11;
 candidateTwo.electionResults[43] = 27;
+
+
+// function for setting state results
+var setStateResults = function (state) {
+        
+    theStates[state].winner = null;
+    
+    if (candidateOne.electionResults[state] > candidateTwo.electionResults[state]) {
+
+         theStates[state].winner = candidateOne;
+
+    } else if (candidateOne.electionResults[state] < candidateTwo.electionResults[state]) {
+
+        theStates[state].winner = candidateTwo;
+
+    }
+    
+    this.stateWinner = theStates[state].winner;
+    
+    // Makes the state the winner's color
+    if (this.stateWinner != null) {
+        
+        theStates[state].rgbColor = stateWinner.color;
+        
+    } else {
+        
+        theStates[state].rgbColor = [11, 32, 57];
+        
+    }
+
+}
+
 
 // Calls voteCount method for each politician
 candidateOne.voteCount();
