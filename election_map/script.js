@@ -55,6 +55,7 @@ var setStateResults = function (state) {
         
     theStates[state].winner = null;
     
+    // determine that state's winner
     if (candidateOne.electionResults[state] > candidateTwo.electionResults[state]) {
 
          theStates[state].winner = candidateOne;
@@ -77,7 +78,7 @@ var setStateResults = function (state) {
         theStates[state].rgbColor = [11, 32, 57];
         
     }
-
+    
 }
 
 
@@ -111,3 +112,15 @@ console.log(winner + " wins the election!")
 // Used to check if the color array was correct
 // console.log(candidateOne.color);
 // console.log(candidateTwo.color);
+
+
+// Populates the country results table
+var countryResults = document.getElementById('countryResults');
+
+var row = countryResults.children[0].children[0];
+
+row.children[0].innerText = candidateOne.name;
+row.children[1].innerText = candidateOne.totalVotes;
+row.children[2].innerText = candidateTwo.name;
+row.children[3].innerText = candidateTwo.totalVotes;
+row.children[5].innerText = winner;
