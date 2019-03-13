@@ -79,6 +79,46 @@ var setStateResults = function (state) {
         
     }
     
+    // Populates the country results table
+    var countryResults = document.getElementById('countryResults');
+
+    var row = countryResults.children[0].children[0];
+
+    row.children[0].innerText = candidateOne.name;
+    row.children[1].innerText = candidateOne.totalVotes;
+    row.children[2].innerText = candidateTwo.name;
+    row.children[3].innerText = candidateTwo.totalVotes;
+    row.children[5].innerText = winner;
+    
+    // Populates state results table
+    var stateResults = document.getElementById('stateResults');
+    
+    var header = stateResults.children[0];
+    var body = stateResults.children[1];
+    
+    var stateName = header.children[0].children[0];
+    var abbrev = header.children[0].children[1];
+    var candidate1Name = body.children[0].children[0];
+    var candidate1Results = body.children[0].children[1];
+    var candidate2Name = body.children[1].children[0];
+    var candidate2Results = body.children[1].children[1];
+    var winnersName = body.children[2].children[1];
+    
+    stateName.innerText = theStates[state].nameFull;
+    abbrev.innerText = theStates[state].nameAbbrev;
+    
+    candidate1Name.innerText = candidateOne.name;
+    candidate2Name.innerText = candidateTwo.name;
+    
+    candidate1Results.innerText = candidateOne.electionResults[state];
+    candidate2Results.innerText = candidateTwo.electionResults[state];
+    
+    if (this.stateWinner == null) {
+        winnersName.innerText = "DRAW";
+    } else {
+        winnersName.innerText = theStates[state].winner.name;
+    }
+    
 }
 
 
@@ -112,15 +152,3 @@ console.log(winner + " wins the election!")
 // Used to check if the color array was correct
 // console.log(candidateOne.color);
 // console.log(candidateTwo.color);
-
-
-// Populates the country results table
-var countryResults = document.getElementById('countryResults');
-
-var row = countryResults.children[0].children[0];
-
-row.children[0].innerText = candidateOne.name;
-row.children[1].innerText = candidateOne.totalVotes;
-row.children[2].innerText = candidateTwo.name;
-row.children[3].innerText = candidateTwo.totalVotes;
-row.children[5].innerText = winner;
